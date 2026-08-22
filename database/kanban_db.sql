@@ -1,19 +1,20 @@
-CREATE DATABASE concord_db_tironi;
-USE  concord_db_tironi;
+CREATE DATABASE kanban_db_rafael2;
+USE kanban_db_rafael2;
 
-CREATE table usuarios(
-id_usuario INT auto_increment PRIMARY KEY,
-nome varchar(45) NOT NULL,
-email varchar(45) NOT NULL,
-senha varchar(45) NOT NULL,
-amizades float NOT NULL
+CREATE TABLE usuario(
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL,
+    email VARCHAR(45) NOT NULL
 );
 
-CREATE table servidor(
-id_servidor INT AUTO_INCREMENT PRIMARY KEY,
-id_usuario INT NOT NULL,
-nome_servidor varchar(45) NOT NULL,
-convite varchar(45) NOT NULL,
-data_entrada date NOT NULL,
-FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+CREATE TABLE tarefas (
+    id_tarefa INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    descricao TEXT NOT NULL,
+    setor VARCHAR(45) NOT NULL,
+    prioridade ENUM('baixa','media','alta') NOT NULL,
+    data_cadastro DATE NOT NULL,
+    status ENUM('a fazer', 'fazendo', 'pronto') NOT NULL DEFAULT 'a fazer',
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
+
 );
