@@ -25,4 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //validar campos
     if (empty($usuario) || empty($descricao) || empty($setor) || empty($prioridade)) {
-        
+        $mensagem = "Todos os campos são obrigatórios.";
+        }else{
+    //
+            if($edicao){
+                
+            }
+        }
