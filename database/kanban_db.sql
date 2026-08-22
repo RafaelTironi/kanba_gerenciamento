@@ -15,11 +15,11 @@ CREATE TABLE tarefas (
 	prioridade ENUM('baixa','media','alta') NOT NULL,
 	data_cadastro DATE NOT NULL,
 	status ENUM('a fazer', 'fazendo', 'pronto') NOT NULL DEFAULT 'a fazer',
-	FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
 
 );
 
-INSERT INTO usuarios (nome, email) VALUES
+INSERT INTO usuario (nome, email) VALUES
 ('Joao Silva','joao@exemplo.com'),
 ('Maria Santos','joao@exemplo.com'),
 ('Pedro Oliveira','joao@exemplo.com');
